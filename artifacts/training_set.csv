@@ -1,0 +1,6 @@
+customer_id,defaulted_within_90d,num_transactions,total_debit,total_credit,average_transaction_amount,has_rent,has_tesco,has_restaurant,has_salary,has_utility,has_transport,has_airbnb,has_payroll,has_bonus
+CUST_0001,0,3,-65.98,2500.0,811.34,False,True,False,False,False,False,False,True,False
+CUST_0002,1,2,-650.0,1800.0,575.0,True,False,False,False,False,False,False,True,False
+CUST_0003,0,2,-300.0,1200.0,450.0,False,False,False,False,False,False,True,False,False
+CUST_0004,1,2,-400.0,900.0,250.0,True,False,False,False,False,False,False,True,False
+CUST_0005,0,1,0.0,6500.0,6500.0,False,False,False,False,False,False,False,False,True
