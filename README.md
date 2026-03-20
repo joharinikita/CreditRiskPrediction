@@ -151,6 +151,20 @@ Rethink:
 ### 7. AI tools used
 
 Google COLAB was used for creating pipeline.py  
-Claude .py sonnet-4-6) was used for the API development
+Claude .py sonnet-4-6 was used for the API development and for security analysis of the project.
 
+These are the high Risk elements that came as a result of security analysis:
+1. No Authentication on the API
+
+/predict and /health are completely open — anyone who can reach the server can call them
+In production, this should have API key authentication or OAuth2
+Fix: Add an Authorization header check or use Azure API Management in front
+2. Model loaded via joblib without integrity check
+
+joblib.load() uses pickle under the hood — a maliciously crafted .joblib file can execute arbitrary code on load
+If an attacker replaces artifacts/model.joblib, they own the server
+Fix: Verify a SHA-256 checksum of the model file before loading it
+3. No HTTPS
+Running on plain http://localhost:8000 — in production, customer financial data would be sent unencrypted
+Fix: Put behind Azure API Management or a reverse proxy (nginx) with TLS
 All generated code was reviewed, tested, and adapted to match the actual data schema and project requirements. The core logic (feature engineering decisions, model choice, architecture recommendations) reflects independent judgement.
